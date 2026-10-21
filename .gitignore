@@ -1,0 +1,16 @@
+# Virtual environment
+.venv/
+
+# Secrets - never commit these
+.env
+
+# Python auto-generated files
+__pycache__/
+*.pyc
+
+# Data (large, and re-downloadable by our scripts)
+data/raw/
+data/processed/
+
+# Notebook leftovers
+.ipynb_checkpoints/
