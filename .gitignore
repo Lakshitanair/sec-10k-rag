@@ -14,3 +14,6 @@ data/processed/
 
 # Notebook leftovers
 .ipynb_checkpoints/
+
+# Throwaway exploration files
+scratch/
