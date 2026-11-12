@@ -7,7 +7,7 @@ PROCESSED_DIR = Path("data/processed")
 # A real section heading looks like "Item 1A. Risk Factors": the item id, a
 # period, and the title on the SAME line. Table-of-contents entries are just
 # "Item 1A." alone on a line, so this pattern skips them.
-HEADING_RE = re.compile(r"^Item\s+(\d{1,2}[A-C]?)\.\s+(\S.*)$", re.IGNORECASE)
+HEADING_RE = re.compile(r"^Item\s+(\d{1,2}[A-C]?)\.\s+(?!\|)(\S.*)$", re.IGNORECASE)
 
 # Items a 10-K normally has (older filings lack some, e.g. 1C)
 EXPECTED_ITEMS = [
