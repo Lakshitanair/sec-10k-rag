@@ -10,6 +10,8 @@ PROCESSED_DIR = Path("data/processed")
 # Tags that start a new line of text when they open or close
 BLOCK_TAGS = ["div", "p", "br", "tr", "li", "table", "h1", "h2", "h3", "h4", "h5", "h6"]
 
+TABLE_OPEN = "[[TABLE]]"
+TABLE_CLOSE = "[[/TABLE]]"
 # A page footer looks like "Apple Inc. | 2025 Form 10-K | 21"
 FOOTER_RE = re.compile(r"^(?P<company>.+?) \| \d{4} Form 10-K \| (?P<page>\d+)$")
 
@@ -56,6 +58,12 @@ def html_to_text(html: str) -> tuple[str, list[dict]]:
     #    stays on one line. Only table rows start new lines.
     for cell in soup.find_all(["td", "th"]):
         cell.append(" | ")
+        # The HTML knows exactly where every table starts and ends, so we mark it
+    # instead of guessing later. Only outermost tables get markers.
+    for table in soup.find_all("table"):
+        if table.find_parent("table") is None:
+            table.insert_before(f"\n{TABLE_OPEN}\n")
+            table.insert_after(f"\n{TABLE_CLOSE}\n")
     for tag in soup.find_all(BLOCK_TAGS):
         in_cell = tag.name not in ("tr", "table") and tag.find_parent(["td", "th"]) is not None
         separator = " " if in_cell else "\n"

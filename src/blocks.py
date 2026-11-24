@@ -1,6 +1,7 @@
 import json
-import re
 from pathlib import Path
+
+from src.parse import TABLE_CLOSE, TABLE_OPEN
 
 PROCESSED_DIR = Path("data/processed")
 
@@ -8,36 +9,21 @@ MAX_CONTEXT_LINES = 3    # lines above a table that may describe it
 MAX_CONTEXT_CHARS = 250  # a longer line is a paragraph, not a title or unit note
 
 
-def is_row(line: str) -> bool:
-    """A table row has cells separated by ' | '."""
-    return " | " in line
-
-
-def is_group_label(line: str) -> bool:
-    """A short line like 'Net sales:' that names the rows below it."""
-    return len(line) <= 100 and line.endswith(":") and not is_row(line)
-
-
 def find_tables(lines: list[str]) -> list[tuple[int, int]]:
-    """Return (start, end) line ranges of tables. end is exclusive."""
+    """Return (open_marker_index, close_marker_index) for each table.
+    Tables that touch each other (nothing in between) are merged into one."""
     runs = []
-    i = 0
-    while i < len(lines):
-        if not is_row(lines[i]):
-            i += 1
-            continue
-        start, end, j = i, i + 1, i + 1
-        while j < len(lines):
-            if is_row(lines[j]):
-                j += 1
-                end = j
-            elif is_group_label(lines[j]) and j + 1 < len(lines) and is_row(lines[j + 1]):
-                j += 1  # the label stays inside the table
-            else:
-                break
-        if sum(is_row(line) for line in lines[start:end]) >= 2:
-            runs.append((start, end))
-        i = end
+    open_at = None
+    for i, line in enumerate(lines):
+        if line == TABLE_OPEN:
+            open_at = i
+        elif line == TABLE_CLOSE and open_at is not None:
+            if i - open_at > 1:  # skip empty tables
+                if runs and runs[-1][1] + 1 == open_at:
+                    runs[-1] = (runs[-1][0], i)
+                else:
+                    runs.append((open_at, i))
+            open_at = None
     return runs
 
 
@@ -48,7 +34,7 @@ def context_start(lines: list[str], table_start: int, floor: int) -> int:
         k > floor
         and table_start - k < MAX_CONTEXT_LINES
         and len(lines[k - 1]) <= MAX_CONTEXT_CHARS
-        and not is_row(lines[k - 1])
+        and not lines[k - 1].startswith("See accompanying")  # belongs to the table above
     ):
         k -= 1
     return k
@@ -63,25 +49,28 @@ def build_blocks(text: str) -> list[dict]:
     cursor = 0  # first line not yet placed in a block
 
     def add_text(chunk: list[str]) -> None:
+        chunk = [line for line in chunk if line not in (TABLE_OPEN, TABLE_CLOSE)]
         if chunk:
             body = "\n".join(chunk)
             blocks.append({"kind": "text", "text": body, "n_chars": len(body)})
 
-    for start, end in find_tables(lines):
-        first = context_start(lines, start, cursor)
+    for open_at, close_at in find_tables(lines):
+        first = context_start(lines, open_at, cursor)
         add_text(lines[cursor:first])
-        body = "\n".join(lines[first:end])
+        context = lines[first:open_at]
+        rows = [l for l in lines[open_at + 1 : close_at] if l not in (TABLE_OPEN, TABLE_CLOSE)]
+        body = "\n".join(context + rows)
         blocks.append(
             {
                 "kind": "table",
-                "context": lines[first:start],
-                "rows": lines[start:end],
+                "context": context,
+                "rows": rows,
                 "text": body,
-                "n_rows": sum(is_row(line) for line in lines[start:end]),
+                "n_rows": len(rows),
                 "n_chars": len(body),
             }
         )
-        cursor = end
+        cursor = close_at + 1
     add_text(lines[cursor:])
     return blocks
 
@@ -117,7 +106,7 @@ def process_all() -> None:
               f"{len(texts)} text blocks ({text_chars:,} chars), "
               f"{len(tables)} tables ({table_chars:,} chars) -> {out_path}")
         print("  largest tables:")
-        for item, block in sorted(tables, key=lambda t: -t[1]["n_rows"])[:4]:
+        for item, block in sorted(tables, key=lambda t: -t[1]["n_rows"])[:5]:
             label = (block["context"] or block["rows"])[0][:60]
             print(f"    Item {item:<3} {block['n_rows']:>3} rows  {label}")
 
