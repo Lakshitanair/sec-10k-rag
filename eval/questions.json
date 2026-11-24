@@ -1,0 +1,122 @@
+[
+  {
+    "id": "num-001",
+    "type": "numeric",
+    "question": "What were Apple's total net sales in fiscal 2025?",
+    "answer": "$416,161 million",
+    "answerable": true,
+    "sources": [{"ticker": "AAPL", "fiscal_year": 2025, "item": "8", "where": "Consolidated Statements of Operations"}],
+    "verified": false,
+    "notes": "Also appears in the Item 7 segment table."
+  },
+  {
+    "id": "num-002",
+    "type": "numeric",
+    "question": "What was Apple's net income in fiscal 2025?",
+    "answer": "$112,010 million",
+    "answerable": true,
+    "sources": [{"ticker": "AAPL", "fiscal_year": 2025, "item": "8", "where": "Consolidated Statements of Operations"}],
+    "verified": false,
+    "notes": ""
+  },
+  {
+    "id": "num-003",
+    "type": "numeric",
+    "question": "What were Apple's total assets as of September 27, 2025?",
+    "answer": "$359,241 million",
+    "answerable": true,
+    "sources": [{"ticker": "AAPL", "fiscal_year": 2025, "item": "8", "where": "Consolidated Balance Sheets"}],
+    "verified": false,
+    "notes": "Tests the balance sheet, which we had to fix in the parser."
+  },
+  {
+    "id": "num-004",
+    "type": "numeric",
+    "question": "What was Apple's diluted earnings per share in fiscal 2025?",
+    "answer": "$7.46 per share",
+    "answerable": true,
+    "sources": [{"ticker": "AAPL", "fiscal_year": 2025, "item": "8", "where": "Consolidated Statements of Operations"}],
+    "verified": false,
+    "notes": "Trap: per-share amounts are in dollars, not millions."
+  },
+  {
+    "id": "num-005",
+    "type": "numeric",
+    "question": "What was Apple's cost of sales for Services in fiscal 2025?",
+    "answer": "$26,844 million",
+    "answerable": true,
+    "sources": [{"ticker": "AAPL", "fiscal_year": 2025, "item": "8", "where": "Consolidated Statements of Operations, under Cost of sales"}],
+    "verified": false,
+    "notes": "Trap: 'Services' also appears under Net sales ($109,158 million)."
+  },
+  {
+    "id": "num-006",
+    "type": "numeric",
+    "question": "How many shares did Apple use to compute diluted earnings per share in fiscal 2025?",
+    "answer": "15,004,697 thousand shares (about 15.0 billion)",
+    "answerable": true,
+    "sources": [{"ticker": "AAPL", "fiscal_year": 2025, "item": "8", "where": "Consolidated Statements of Operations, shares used in computing earnings per share"}],
+    "verified": false,
+    "notes": "Trap: share counts are in thousands."
+  },
+  {
+    "id": "num-007",
+    "type": "numeric",
+    "question": "What were Apple's net sales in Greater China in fiscal 2025?",
+    "answer": "$64,377 million, down 4% from fiscal 2024",
+    "answerable": true,
+    "sources": [{"ticker": "AAPL", "fiscal_year": 2025, "item": "7", "where": "Segment Operating Performance table"}],
+    "verified": false,
+    "notes": ""
+  },
+  {
+    "id": "yoy-001",
+    "type": "year_over_year",
+    "question": "How did Apple's research and development expense change from fiscal 2024 to fiscal 2025?",
+    "answer": "It increased from $31,370 million to $34,550 million",
+    "answerable": true,
+    "sources": [{"ticker": "AAPL", "fiscal_year": 2025, "item": "8", "where": "Consolidated Statements of Operations"}],
+    "verified": false,
+    "notes": ""
+  },
+  {
+    "id": "yoy-002",
+    "type": "year_over_year",
+    "question": "Which of Apple's reportable segments had lower net sales in fiscal 2025 than in fiscal 2024?",
+    "answer": "Only Greater China ($64,377 million vs $66,952 million)",
+    "answerable": true,
+    "sources": [{"ticker": "AAPL", "fiscal_year": 2025, "item": "7", "where": "Segment Operating Performance table"}],
+    "verified": false,
+    "notes": "The other four segments grew."
+  },
+  {
+    "id": "lookup-001",
+    "type": "lookup",
+    "question": "When does Apple's fiscal year end?",
+    "answer": "On the last Saturday of September (a 52- or 53-week year; fiscal 2023 had 53 weeks)",
+    "answerable": true,
+    "sources": [{"ticker": "AAPL", "fiscal_year": 2025, "item": "1", "where": "Company Background; also Item 7, Fiscal Period"}],
+    "verified": false,
+    "notes": ""
+  },
+  {
+    "id": "unans-001",
+    "type": "unanswerable",
+    "question": "What will Apple's total net sales be in fiscal 2026?",
+    "answer": "NOT_FOUND",
+    "answerable": false,
+    "sources": [],
+    "verified": false,
+    "notes": "Forward-looking. Verify that no filing states a net sales forecast."
+  },
+  {
+    "id": "unans-002",
+    "type": "unanswerable",
+    "question": "What were Apple's total net sales in fiscal 2019?",
+    "answer": "NOT_FOUND",
+    "answerable": false,
+    "sources": [],
+    "verified": false,
+    "notes": "Outside the three filings (FY2023 to FY2025). Verify."
+  }
+]
