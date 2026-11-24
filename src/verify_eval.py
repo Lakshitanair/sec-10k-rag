@@ -29,7 +29,7 @@ CHECKS = {
 
 # Unanswerable questions already confirmed by hand (Select-String searches
 # for "2026", and reading Items 10 to 13, which point to the proxy statement).
-MANUAL_VERIFIED = {"unans-001", "unans-003"}
+MANUAL_VERIFIED = {"unans-001", "unans-002", "unans-003", "unans-004", "unans-005", "unans-006"}
 
 _cache = {}
 

@@ -1,0 +1,315 @@
+[
+  {
+    "id": "held-001",
+    "type": "numeric",
+    "set": "heldout",
+    "question": "What one-time income tax charge did Apple record in fiscal 2024 related to the State Aid Decision?",
+    "answer": "$10.2 billion, net",
+    "answerable": true,
+    "sources": [
+      {
+        "ticker": "AAPL",
+        "fiscal_year": 2024,
+        "item": "7",
+        "where": "Provision for income taxes"
+      }
+    ],
+    "check": [
+      "10.2 billion",
+      "State Aid Decision"
+    ],
+    "verified": false,
+    "notes": ""
+  },
+  {
+    "id": "held-002",
+    "type": "numeric",
+    "set": "heldout",
+    "question": "How much unrestricted cash, cash equivalents and marketable securities did Apple hold as of September 28, 2024?",
+    "answer": "$140.8 billion",
+    "answerable": true,
+    "sources": [
+      {
+        "ticker": "AAPL",
+        "fiscal_year": 2024,
+        "item": "7",
+        "where": "Liquidity and Capital Resources"
+      }
+    ],
+    "check": [
+      "140.8 billion"
+    ],
+    "verified": false,
+    "notes": ""
+  },
+  {
+    "id": "held-003",
+    "type": "numeric",
+    "set": "heldout",
+    "question": "As of September 30, 2023, what share of Apple's total trade receivables came from third-party cellular network carriers?",
+    "answer": "41% (44% as of September 24, 2022)",
+    "answerable": true,
+    "sources": [
+      {
+        "ticker": "AAPL",
+        "fiscal_year": 2023,
+        "item": "8",
+        "where": "Accounts Receivable, Trade Receivables"
+      }
+    ],
+    "check": [
+      "41% and 44%"
+    ],
+    "verified": false,
+    "notes": ""
+  },
+  {
+    "id": "held-004",
+    "type": "numeric",
+    "set": "heldout",
+    "question": "In fiscal 2024, how much did other corporate expenses, net, reduce operating income in Apple's segment reconciliation?",
+    "answer": "$7,458 million",
+    "answerable": true,
+    "sources": [
+      {
+        "ticker": "AAPL",
+        "fiscal_year": 2024,
+        "item": "8",
+        "where": "Segment information, reconciliation table"
+      }
+    ],
+    "check": [
+      "7,458"
+    ],
+    "verified": false,
+    "notes": "Table row with several year columns."
+  },
+  {
+    "id": "held-005",
+    "type": "risk_summary",
+    "set": "heldout",
+    "question": "In Apple's fiscal 2023 10-K, what risk is described around obtaining third-party digital content for its services?",
+    "answer": "Licenses with third parties can be short and may not be renewed on commercially reasonable terms, some providers may compete with Apple or limit access or raise costs, and Apple may be unable to offer a wide variety of content at acceptable prices.",
+    "answerable": true,
+    "sources": [
+      {
+        "ticker": "AAPL",
+        "fiscal_year": 2023,
+        "item": "1A",
+        "where": "Digital content risk factor"
+      }
+    ],
+    "check": [
+      "Failure to obtain or create digital content"
+    ],
+    "verified": false,
+    "notes": ""
+  },
+  {
+    "id": "held-006",
+    "type": "lookup",
+    "set": "heldout",
+    "question": "Which EU law does Apple's fiscal 2023 10-K say it must comply with by March 2024 that affects the App Store?",
+    "answer": "The EU Digital Markets Act",
+    "answerable": true,
+    "sources": [
+      {
+        "ticker": "AAPL",
+        "fiscal_year": 2023,
+        "item": "1A",
+        "where": "Regulatory scrutiny risk factor"
+      }
+    ],
+    "check": [
+      "Digital Markets Act",
+      "March 2024"
+    ],
+    "verified": false,
+    "notes": ""
+  },
+  {
+    "id": "held-007",
+    "type": "year_over_year",
+    "set": "heldout",
+    "question": "By what percentage did Apple's selling, general and administrative expense grow in fiscal 2025, and what were the dollar amounts?",
+    "answer": "Up 6%, from $26,097 million to $27,601 million",
+    "answerable": true,
+    "sources": [
+      {
+        "ticker": "AAPL",
+        "fiscal_year": 2025,
+        "item": "7",
+        "where": "Operating Expenses table"
+      }
+    ],
+    "check": [
+      "27,601",
+      "26,097"
+    ],
+    "verified": false,
+    "notes": ""
+  },
+  {
+    "id": "held-008",
+    "type": "lookup",
+    "set": "heldout",
+    "question": "Did Apple settle any other legal matters in the fourth quarter of fiscal 2023, and was the impact material?",
+    "answer": "Yes, it settled certain matters, which did not individually or in aggregate have a material impact on financial condition or operating results.",
+    "answerable": true,
+    "sources": [
+      {
+        "ticker": "AAPL",
+        "fiscal_year": 2023,
+        "item": "3",
+        "where": "Other Legal Proceedings"
+      }
+    ],
+    "check": [
+      "fourth quarter of 2023 that did not individually"
+    ],
+    "verified": false,
+    "notes": ""
+  },
+  {
+    "id": "held-009",
+    "type": "lookup",
+    "set": "heldout",
+    "question": "In Apple's fiscal 2025 10-K, when did the European Commission announce its State Aid Decision, and what period did it order Ireland to recover taxes for?",
+    "answer": "August 30, 2016; the period from June 2003 through December 2014",
+    "answerable": true,
+    "sources": [
+      {
+        "ticker": "AAPL",
+        "fiscal_year": 2025,
+        "item": "8",
+        "where": "Note 7, Income Taxes"
+      }
+    ],
+    "check": [
+      "August 30, 2016",
+      "June 2003 through December 2014"
+    ],
+    "verified": false,
+    "notes": ""
+  },
+  {
+    "id": "held-010",
+    "type": "lookup",
+    "set": "heldout",
+    "question": "In Apple's fiscal 2024 10-K, how was the one-time State Aid charge built up from payments to Ireland and offsetting items?",
+    "answer": "$15.8 billion payable to Ireland via release of the escrow, partially offset by a $4.8 billion U.S. foreign tax credit and an $823 million decrease in unrecognized tax benefits",
+    "answerable": true,
+    "sources": [
+      {
+        "ticker": "AAPL",
+        "fiscal_year": 2024,
+        "item": "8",
+        "where": "Note 7, Income Taxes"
+      }
+    ],
+    "check": [
+      "15.8 billion",
+      "4.8 billion",
+      "823 million"
+    ],
+    "verified": false,
+    "notes": ""
+  },
+  {
+    "id": "held-011",
+    "type": "lookup",
+    "set": "heldout",
+    "question": "As of September 27, 2025, where were Apple's vendor non-trade receivables concentrated?",
+    "answer": "Among a few individual vendors located primarily in Asia",
+    "answerable": true,
+    "sources": [
+      {
+        "ticker": "AAPL",
+        "fiscal_year": 2025,
+        "item": "1A",
+        "where": "Credit risk risk factor"
+      }
+    ],
+    "check": [
+      "located primarily in Asia"
+    ],
+    "verified": false,
+    "notes": ""
+  },
+  {
+    "id": "held-012",
+    "type": "risk_summary",
+    "set": "heldout",
+    "question": "In its fiscal 2023 10-K, what protections does Apple say it deploys to help protect customers' accounts?",
+    "answer": "Technologies like multifactor authentication, monitoring of services and systems for unusual activity, and freezing accounts under suspicious circumstances (alongside encryption and authentication technologies)",
+    "answerable": true,
+    "sources": [
+      {
+        "ticker": "AAPL",
+        "fiscal_year": 2023,
+        "item": "1A",
+        "where": "Cybersecurity risk factor"
+      }
+    ],
+    "check": [
+      "multifactor authentication",
+      "freeze accounts"
+    ],
+    "verified": false,
+    "notes": ""
+  },
+  {
+    "id": "held-013",
+    "type": "risk_summary",
+    "set": "heldout",
+    "question": "According to Apple's fiscal 2024 10-K, how have competitors' pricing practices affected competition?",
+    "answer": "Competition has been particularly intense because competitors have aggressively cut prices and lowered product margins; some can sell at little or no profit or even at a loss.",
+    "answerable": true,
+    "sources": [
+      {
+        "ticker": "AAPL",
+        "fiscal_year": 2024,
+        "item": "1",
+        "where": "Competition"
+      }
+    ],
+    "check": [
+      "aggressively cut prices"
+    ],
+    "verified": false,
+    "notes": ""
+  },
+  {
+    "id": "unans-004",
+    "type": "unanswerable",
+    "set": "heldout",
+    "question": "How many people does Apple employ in India?",
+    "answer": "NOT_FOUND",
+    "answerable": false,
+    "sources": [],
+    "verified": true,
+    "notes": "The filing gives a total headcount, not a country breakdown. Confirm with Select-String."
+  },
+  {
+    "id": "unans-005",
+    "type": "unanswerable",
+    "set": "heldout",
+    "question": "What was Apple's global smartphone market share percentage in fiscal 2025?",
+    "answer": "NOT_FOUND",
+    "answerable": false,
+    "sources": [],
+    "verified": true,
+    "notes": "Confirm no filing states a market share number."
+  },
+  {
+    "id": "unans-006",
+    "type": "unanswerable",
+    "set": "heldout",
+    "question": "What were Tesla's total revenues in 2025?",
+    "answer": "NOT_FOUND",
+    "answerable": false,
+    "sources": [],
+    "verified": true,
+    "notes": "A different company, not in the corpus."
+  }
+]

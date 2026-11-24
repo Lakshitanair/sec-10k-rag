@@ -16,7 +16,7 @@ def norm(text):
 
 
 def is_hit(chunk, question):
-    needles = CHECKS[question["id"]]
+    needles = question.get("check") or CHECKS[question["id"]]
     text = norm(chunk["text"])
     for src in question["sources"]:
         if (chunk["ticker"] == src["ticker"]
@@ -28,7 +28,8 @@ def is_hit(chunk, question):
 
 def main():
     searcher = Searcher()
-    questions = [q for q in load_questions() if q["answerable"] and q["id"] in CHECKS]
+    questions = [q for q in load_questions()
+                 if q["answerable"] and (q.get("check") or q["id"] in CHECKS)]
 
     def with_year(fn):
         return lambda q, k: fn(q, k, year=searcher.detect_year(q))
