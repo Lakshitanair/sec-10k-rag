@@ -74,3 +74,7 @@ def main():
     out = RESULTS_DIR / "retrieval_v2.json"
     out.write_text(json.dumps({"summary": summary, "ranks": ranks}, indent=2), encoding="utf-8")
     print("\nsaved", out)
+
+
+if __name__ == "__main__":
+    main()
