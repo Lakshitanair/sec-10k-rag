@@ -1,0 +1,62 @@
+[
+  {
+    "id": "text-001",
+    "type": "lookup",
+    "question": "Who will become Apple's Principal Accounting Officer after Chris Kondo transitions from the role?",
+    "answer": "Ben Borders, currently Director of Technical Accounting, who becomes Senior Director of Corporate Accounting",
+    "answerable": true,
+    "sources": [{"ticker": "AAPL", "fiscal_year": 2025, "item": "9B", "where": "Other Information"}],
+    "verified": false,
+    "notes": "Tests retrieval of a small detail in a short section."
+  },
+  {
+    "id": "text-002",
+    "type": "lookup",
+    "question": "Who will Apple's new Principal Accounting Officer report to?",
+    "answer": "Kevan Parekh, the Chief Financial Officer",
+    "answerable": true,
+    "sources": [{"ticker": "AAPL", "fiscal_year": 2025, "item": "9B", "where": "Other Information"}],
+    "verified": false,
+    "notes": ""
+  },
+  {
+    "id": "text-003",
+    "type": "lookup",
+    "question": "When does Apple plan to adopt ASU 2023-09 on income tax disclosures, and with what transition method?",
+    "answer": "In its fourth quarter of fiscal 2026, using a prospective transition method",
+    "answerable": true,
+    "sources": [{"ticker": "AAPL", "fiscal_year": 2025, "item": "8", "where": "Note 1, Summary of Significant Accounting Policies"}],
+    "verified": false,
+    "notes": ""
+  },
+  {
+    "id": "text-004",
+    "type": "lookup",
+    "question": "As of September 27, 2025, how much did Apple owe in fixed payment obligations under leases that had not yet commenced?",
+    "answer": "$523 million, with leases expected to commence between 2026 and 2027 and terms of 1 to 21 years",
+    "answerable": true,
+    "sources": [{"ticker": "AAPL", "fiscal_year": 2025, "item": "8", "where": "Leases note"}],
+    "verified": false,
+    "notes": ""
+  },
+  {
+    "id": "lookup-002",
+    "type": "lookup",
+    "question": "In Apple's fiscal 2024 10-K, what date is used as the starting point of the five-year stock performance comparison?",
+    "answer": "September 27, 2019 (the market close, assuming $100 invested)",
+    "answerable": true,
+    "sources": [{"ticker": "AAPL", "fiscal_year": 2024, "item": "5", "where": "Company Stock Performance"}],
+    "verified": false,
+    "notes": "Tests choosing the right fiscal year. The FY2023 and FY2025 filings use different start dates."
+  },
+  {
+    "id": "unans-003",
+    "type": "unanswerable",
+    "question": "What was the CEO's total compensation in fiscal 2025?",
+    "answer": "NOT_FOUND",
+    "answerable": false,
+    "sources": [],
+    "verified": false,
+    "notes": "Item 11 only says the information is incorporated by reference from the proxy statement."
+  }
+]
