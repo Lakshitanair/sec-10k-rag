@@ -1,0 +1,128 @@
+[
+  {
+    "id": "stress-001",
+    "type": "reasoning",
+    "set": "heldout",
+    "question": "By how many dollars, and by what percent, did Apple's total net sales grow from fiscal 2023 to fiscal 2025?",
+    "answer": "$32,876 million, about 8.6% (from $383,285 million to $416,161 million)",
+    "answerable": true,
+    "sources": [
+      {
+        "ticker": "AAPL",
+        "fiscal_year": 2025,
+        "item": "8",
+        "where": "Consolidated Statements of Operations"
+      }
+    ],
+    "check": [
+      "416,161",
+      "383,285"
+    ],
+    "verified": true,
+    "notes": "Needs arithmetic across two columns."
+  },
+  {
+    "id": "stress-002",
+    "type": "reasoning",
+    "set": "heldout",
+    "question": "What share of Apple's total net sales came from Services in fiscal 2025?",
+    "answer": "About 26.2% ($109,158 million of $416,161 million)",
+    "answerable": true,
+    "sources": [
+      {
+        "ticker": "AAPL",
+        "fiscal_year": 2025,
+        "item": "8",
+        "where": "Consolidated Statements of Operations"
+      }
+    ],
+    "check": [
+      "109,158",
+      "416,161"
+    ],
+    "verified": true,
+    "notes": "Needs division; trap: Services also appears under cost of sales."
+  },
+  {
+    "id": "stress-003",
+    "type": "lookup",
+    "set": "heldout",
+    "question": "What were Apple's total net sales in fiscal 2022?",
+    "answer": "$394,328 million",
+    "answerable": true,
+    "sources": [
+      {
+        "ticker": "AAPL",
+        "fiscal_year": 2023,
+        "item": "8",
+        "where": "Consolidated Statements of Operations, 2022 column"
+      },
+      {
+        "ticker": "AAPL",
+        "fiscal_year": 2024,
+        "item": "8",
+        "where": "Consolidated Statements of Operations, 2022 column"
+      }
+    ],
+    "check": [
+      "394,328"
+    ],
+    "verified": true,
+    "notes": "No FY2022 filing here, but the 2023 and 2024 filings show 2022 as the earliest column."
+  },
+  {
+    "id": "stress-004",
+    "type": "reasoning",
+    "set": "heldout",
+    "question": "Did Apple's diluted earnings per share rise or fall from fiscal 2023 to fiscal 2025, and by how much?",
+    "answer": "Rose by $1.33, from $6.13 to $7.46",
+    "answerable": true,
+    "sources": [
+      {
+        "ticker": "AAPL",
+        "fiscal_year": 2025,
+        "item": "8",
+        "where": "Consolidated Statements of Operations"
+      }
+    ],
+    "check": [
+      "7.46",
+      "6.13"
+    ],
+    "verified": true,
+    "notes": ""
+  },
+  {
+    "id": "unans-007",
+    "type": "unanswerable",
+    "set": "heldout",
+    "question": "How many iPhone units did Apple sell in fiscal 2025?",
+    "answer": "NOT_FOUND",
+    "answerable": false,
+    "sources": [],
+    "verified": false,
+    "notes": "Near miss: iPhone net sales in dollars exist, unit counts do not. Confirm."
+  },
+  {
+    "id": "unans-008",
+    "type": "unanswerable",
+    "set": "heldout",
+    "question": "What was Apple's net income in fiscal 2026?",
+    "answer": "NOT_FOUND",
+    "answerable": false,
+    "sources": [],
+    "verified": false,
+    "notes": "Future year; no FY2026 filing."
+  },
+  {
+    "id": "unans-009",
+    "type": "unanswerable",
+    "set": "heldout",
+    "question": "What were Apple's iPhone net sales in India in fiscal 2025?",
+    "answer": "NOT_FOUND",
+    "answerable": false,
+    "sources": [],
+    "verified": false,
+    "notes": "Near miss: India is inside the Europe segment and iPhone sales are given only in total."
+  }
+]
