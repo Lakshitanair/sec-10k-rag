@@ -15,16 +15,28 @@ TABLE_MAX_CHARS = 2000
 TABLE_HEADER_LINES = 4
 
 
+def is_heading(line):
+    """Short line with no sentence punctuation at the end, e.g. 'Supply of Components'."""
+    return len(line) < 80 and not line.endswith((".", ":", ";", ",", ")", "?", "!"))
+
+
 def pack(units, max_chars):
-    """Greedily join units into chunks, carrying one short unit over as overlap."""
-    chunks, current, size = [], [], 0
+    """Join units into chunks. A heading starts a new chunk; overlap carries one short unit."""
+    chunks, current, size, has_body = [], [], 0, False
     for unit in units:
-        if current and size + len(unit) + 1 > max_chars:
+        heading = is_heading(unit)
+        too_big = bool(current) and size + len(unit) + 1 > max_chars
+        if current and ((heading and has_body) or too_big):
             chunks.append("\n".join(current))
             last = current[-1]
-            current, size = ([last], len(last)) if len(last) < 300 else ([], 0)
+            if too_big and not heading and len(last) < 300 and not is_heading(last):
+                current, size, has_body = [last], len(last), True
+            else:
+                current, size, has_body = [], 0, False
         current.append(unit)
         size += len(unit) + 1
+        if not heading:
+            has_body = True
     if current:
         chunks.append("\n".join(current))
     return chunks

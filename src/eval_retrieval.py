@@ -59,20 +59,27 @@ def main():
         row = "".join(f"{(ranks[m][q['id']] or '-')!s:>13}" for m in methods)
         print(f"{q['id']:<12}{row}")
 
-    n = len(questions)
-    print(f"\nHit rate over {n} answerable questions")
+    groups = {
+        "all": questions,
+        "tuned": [q for q in questions if q.get("set") != "heldout"],
+        "held-out": [q for q in questions if q.get("set") == "heldout"],
+    }
     summary = {}
-    for name in methods:
-        summary[name] = {}
-        parts = []
-        for k in KS:
-            hits = sum(1 for r in ranks[name].values() if r is not None and r <= k)
-            summary[name][f"hit@{k}"] = round(hits / n, 3)
-            parts.append(f"hit@{k} {hits}/{n}")
-        print(f"{name:<13}" + "   ".join(parts))
+    for gname, qs in groups.items():
+        print(f"\nHit rate: {gname} ({len(qs)} questions)")
+        summary[gname] = {}
+        for name in methods:
+            parts, row = [], {}
+            for k in KS:
+                hits = sum(1 for q in qs
+                           if ranks[name][q["id"]] is not None and ranks[name][q["id"]] <= k)
+                row[f"hit@{k}"] = round(hits / len(qs), 3)
+                parts.append(f"hit@{k} {hits}/{len(qs)}")
+            summary[gname][name] = row
+            print(f"{name:<13}" + "   ".join(parts))
 
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    out = RESULTS_DIR / "retrieval_v2.json"
+    out = RESULTS_DIR / "retrieval_v3.json"
     out.write_text(json.dumps({"summary": summary, "ranks": ranks}, indent=2), encoding="utf-8")
     print("\nsaved", out)
 

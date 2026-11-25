@@ -70,7 +70,7 @@ def main(write):
                 else:
                     print(f"TODO    {qid}: unanswerable, not yet confirmed")
                 continue
-            needles = CHECKS.get(qid)
+            needles = q.get("check") or CHECKS.get(qid)
             if needles is None:
                 print(f"SKIP    {qid}: no checks defined")
                 continue

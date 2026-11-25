@@ -12,6 +12,9 @@ from src.index import MODEL_NAME, embed_text
 QUERY_PREFIX = "Represent this sentence for searching relevant passages: "
 RERANK_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 RRF_K = 60
+FISCAL_RE = re.compile(
+    r"\b(?:fiscal(?:\s+year)?|FY)\s*(20[12]\d)\b|\b(20[12]\d)\s+(?:Form\s+)?10-K", re.I
+)
 YEAR_RE = re.compile(r"\b(20[12]\d)\b(?!-\d)")
 
 
@@ -29,10 +32,12 @@ class Searcher:
         self.reranker = None
 
     def detect_year(self, query):
-        """Latest year mentioned in the question, if we have that filing."""
-        mentioned = [int(y) for y in YEAR_RE.findall(query)]
-        if mentioned and max(mentioned) in set(self.years.tolist()):
-            return max(mentioned)
+        """Year of the filing the question is about, if we have that filing."""
+        available = set(self.years.tolist())
+        explicit = [int(a or b) for a, b in FISCAL_RE.findall(query)]
+        years = explicit or [int(y) for y in YEAR_RE.findall(query)]
+        if years and max(years) in available:
+            return max(years)
         return None
 
     def _top(self, scores, k, year):
