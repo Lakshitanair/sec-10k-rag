@@ -7,17 +7,22 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-MODEL = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
+_default = "gemini-3.8-flash,gemini-3.5-flash,gemini-3.1-flash-lite"
+MODELS = [m.strip() for m in os.getenv("GEMINI_MODELS", _default).split(",") if m.strip()]
+if os.getenv("GEMINI_MODEL"):
+    MODELS.insert(0, os.getenv("GEMINI_MODEL").strip())
+    MODELS = list(dict.fromkeys(MODELS))  # remove duplicates, keep order
 MIN_GAP = float(os.getenv("GEMINI_MIN_GAP", "6"))  # seconds between calls
-THINKING = os.getenv("GEMINI_THINKING_LEVEL", "")  # e.g. low; empty = model default
-TIMEOUT = 120
+THINKING = os.getenv("GEMINI_THINKING_LEVEL", "")  # empty = model default
+TIMEOUT = 60
 URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 
 _last_call = 0.0
+LAST_MODEL = ""  # which model produced the latest answer
 
 
-def generate(system, user, retries=5):
-    global _last_call
+def generate(system, user, tries_per_model=3):
+    global _last_call, LAST_MODEL
     key = os.getenv("GEMINI_API_KEY")
     if not key:
         raise SystemExit("GEMINI_API_KEY is missing from your .env file")
@@ -31,32 +36,37 @@ def generate(system, user, retries=5):
     }
     headers = {"x-goog-api-key": key, "Content-Type": "application/json"}
     last_error = ""
-    for attempt in range(retries):
-        gap = MIN_GAP - (time.time() - _last_call)
-        if gap > 0:
-            time.sleep(gap)
-        try:
-            resp = requests.post(URL.format(model=MODEL), headers=headers, json=body, timeout=TIMEOUT)
-        except requests.exceptions.RequestException as exc:
-            _last_call = time.time()
-            last_error = f"{type(exc).__name__}"
-            wait = 5 * 2 ** attempt
-            print(f"  [{last_error}, retrying in {wait}s]", file=sys.stderr)
-            time.sleep(wait)
-            continue
-        _last_call = time.time()
-        if resp.status_code in (429, 500, 503):
-            last_error = f"{resp.status_code}: {resp.text[:300]}"
-            wait = 5 * 2 ** attempt
-            print(f"  [Gemini returned {resp.status_code}, retrying in {wait}s]", file=sys.stderr)
-            time.sleep(wait)
-            continue
-        if resp.status_code >= 400:
-            raise RuntimeError(f"Gemini error {resp.status_code}: {resp.text[:300]}")
-        data = resp.json()
-        try:
-            parts = data["candidates"][0]["content"]["parts"]
-            return "".join(p.get("text", "") for p in parts).strip()
-        except (KeyError, IndexError):
-            return ""  # blocked or empty response
-    raise RuntimeError(f"Gemini kept failing. Last error: {last_error}")
+    for model in MODELS:
+        for attempt in range(tries_per_model):
+            gap = MIN_GAP - (time.time() - _last_call)
+            if gap > 0:
+                time.sleep(gap)
+            try:
+                resp = requests.post(URL.format(model=model), headers=headers, json=body, timeout=TIMEOUT)
+            except requests.exceptions.RequestException as exc:
+                _last_call = time.time()
+                last_error = f"{model}: {type(exc).__name__}"
+                print(f"  [{last_error}]", file=sys.stderr)
+            else:
+                _last_call = time.time()
+                if resp.status_code == 404:
+                    last_error = f"{model}: not available"
+                    print(f"  [{model} not available, trying next model]", file=sys.stderr)
+                    break
+                if resp.status_code in (429, 500, 503):
+                    last_error = f"{model}: {resp.status_code}"
+                    print(f"  [{model} returned {resp.status_code}]", file=sys.stderr)
+                elif resp.status_code >= 400:
+                    raise RuntimeError(f"Gemini error {resp.status_code}: {resp.text[:300]}")
+                else:
+                    data = resp.json()
+                    LAST_MODEL = model
+                    try:
+                        parts = data["candidates"][0]["content"]["parts"]
+                        return "".join(p.get("text", "") for p in parts).strip()
+                    except (KeyError, IndexError):
+                        return ""  # blocked or empty response
+            if attempt < tries_per_model - 1:
+                time.sleep(5 * 3 ** attempt)  # 5, then 15 seconds
+        print(f"  [moving on from {model}]", file=sys.stderr)
+    raise RuntimeError(f"All Gemini models failed. Last error: {last_error}")

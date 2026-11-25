@@ -1,0 +1,548 @@
+{
+  "num-001": {
+    "answer": "Apple's total net sales in fiscal 2025 were $416,161 million (or $416.161 billion) [1][2][3][5].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2025-0281",
+      "AAPL-FY2025-0223",
+      "AAPL-FY2025-0160",
+      "AAPL-FY2025-0154"
+    ],
+    "retrieved": [
+      "AAPL-FY2025-0281",
+      "AAPL-FY2025-0223",
+      "AAPL-FY2025-0160",
+      "AAPL-FY2025-0167",
+      "AAPL-FY2025-0154"
+    ],
+    "model": "gemini-3.5-flash",
+    "correct": true
+  },
+  "num-002": {
+    "answer": "Apple's net income in fiscal 2025 was $112,010 million (or $112.01 billion) [2][3].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2025-0197",
+      "AAPL-FY2025-0195"
+    ],
+    "retrieved": [
+      "AAPL-FY2025-0173",
+      "AAPL-FY2025-0197",
+      "AAPL-FY2025-0195",
+      "AAPL-FY2025-0247",
+      "AAPL-FY2025-0248"
+    ],
+    "model": "gemini-3.5-flash",
+    "correct": true
+  },
+  "num-003": {
+    "answer": "As of September 27, 2025, Apple's total assets were $359,241 million (or $359.241 billion) [3].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2025-0199"
+    ],
+    "retrieved": [
+      "AAPL-FY2025-0242",
+      "AAPL-FY2025-0249",
+      "AAPL-FY2025-0199",
+      "AAPL-FY2025-0280",
+      "AAPL-FY2025-0176"
+    ],
+    "model": "gemini-3.5-flash",
+    "correct": true
+  },
+  "num-004": {
+    "answer": "In fiscal 2025, Apple's diluted earnings per share was $7.46 [1][2].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2025-0225",
+      "AAPL-FY2025-0195"
+    ],
+    "retrieved": [
+      "AAPL-FY2025-0225",
+      "AAPL-FY2025-0195",
+      "AAPL-FY2025-0201",
+      "AAPL-FY2025-0247",
+      "AAPL-FY2025-0248"
+    ],
+    "model": "gemini-3.5-flash",
+    "correct": true
+  },
+  "num-005": {
+    "answer": "Apple's cost of sales for Services in fiscal 2025 was $26,844 million (or $26.844 billion) [2].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2025-0195"
+    ],
+    "retrieved": [
+      "AAPL-FY2025-0224",
+      "AAPL-FY2025-0195",
+      "AAPL-FY2025-0223",
+      "AAPL-FY2025-0160",
+      "AAPL-FY2025-0167"
+    ],
+    "model": "gemini-3.5-flash",
+    "correct": true
+  },
+  "num-006": {
+    "answer": "In fiscal 2025, Apple used 15,004,697 thousand shares (or 15,004,697,000 shares) to compute diluted earnings per share [1][2].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2025-0225",
+      "AAPL-FY2025-0195"
+    ],
+    "retrieved": [
+      "AAPL-FY2025-0225",
+      "AAPL-FY2025-0195",
+      "AAPL-FY2025-0141",
+      "AAPL-FY2025-0201",
+      "AAPL-FY2025-0264"
+    ],
+    "model": "gemini-3.5-flash",
+    "correct": true
+  },
+  "num-007": {
+    "answer": "Apple's net sales in Greater China were $64,377 million (or $64.377 billion) in fiscal 2025 [2][3][4].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2025-0281",
+      "AAPL-FY2025-0154",
+      "AAPL-FY2025-0279"
+    ],
+    "retrieved": [
+      "AAPL-FY2025-0157",
+      "AAPL-FY2025-0281",
+      "AAPL-FY2025-0154",
+      "AAPL-FY2025-0279",
+      "AAPL-FY2025-0224"
+    ],
+    "model": "gemini-3.5-flash",
+    "correct": true
+  },
+  "yoy-001": {
+    "answer": "Apple's research and development expense increased by 10% from $31,370 million in fiscal 2024 to $34,550 million in fiscal 2025 [2]. This growth was primarily driven by increases in headcount-related expenses and infrastructure-related costs [1].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2025-0171",
+      "AAPL-FY2025-0170"
+    ],
+    "retrieved": [
+      "AAPL-FY2025-0171",
+      "AAPL-FY2025-0170",
+      "AAPL-FY2025-0248",
+      "AAPL-FY2025-0279",
+      "AAPL-FY2025-0241"
+    ],
+    "model": "gemini-3.5-flash",
+    "correct": true
+  },
+  "yoy-002": {
+    "answer": "Greater China was the only reportable segment with lower net sales in fiscal 2025 ($64,377 million) compared to fiscal 2024 ($66,952 million) [2][3].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2025-0154",
+      "AAPL-FY2025-0157"
+    ],
+    "retrieved": [
+      "AAPL-FY2025-0224",
+      "AAPL-FY2025-0154",
+      "AAPL-FY2025-0157",
+      "AAPL-FY2025-0155",
+      "AAPL-FY2025-0165"
+    ],
+    "model": "gemini-3.5-flash",
+    "correct": true
+  },
+  "lookup-001": {
+    "answer": "Apple's fiscal year ends on the last Saturday of September [1][2][3].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2023-0145",
+      "AAPL-FY2024-0155",
+      "AAPL-FY2025-0150"
+    ],
+    "retrieved": [
+      "AAPL-FY2023-0145",
+      "AAPL-FY2024-0155",
+      "AAPL-FY2025-0150",
+      "AAPL-FY2024-0150",
+      "AAPL-FY2023-0144"
+    ],
+    "model": "gemini-3.5-flash",
+    "correct": true
+  },
+  "unans-001": {
+    "answer": "NOT_FOUND",
+    "refused": true,
+    "cited": [],
+    "retrieved": [
+      "AAPL-FY2023-0146",
+      "AAPL-FY2024-0283",
+      "AAPL-FY2023-0279",
+      "AAPL-FY2025-0281",
+      "AAPL-FY2024-0225"
+    ],
+    "model": "gemini-3.1-flash-lite"
+  },
+  "unans-002": {
+    "answer": "NOT_FOUND",
+    "refused": true,
+    "cited": [],
+    "retrieved": [
+      "AAPL-FY2023-0146",
+      "AAPL-FY2023-0215",
+      "AAPL-FY2024-0224",
+      "AAPL-FY2023-0278",
+      "AAPL-FY2024-0283"
+    ],
+    "model": "gemini-3.5-flash"
+  },
+  "text-001": {
+    "answer": "Ben Borders, the Company’s Director of Technical Accounting, will become the Senior Director of Corporate Accounting and assume the role of Principal Accounting Officer after Chris Kondo transitions from the position [1].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2025-0304"
+    ],
+    "retrieved": [
+      "AAPL-FY2025-0304",
+      "AAPL-FY2024-0317",
+      "AAPL-FY2023-0312",
+      "AAPL-FY2025-0316",
+      "AAPL-FY2023-0259"
+    ],
+    "model": "gemini-3.1-flash-lite",
+    "correct": true
+  },
+  "text-002": {
+    "answer": "Ben Borders, who will become the new Principal Accounting Officer, will report to Kevan Parekh, the Company’s Chief Financial Officer [1].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2025-0304"
+    ],
+    "retrieved": [
+      "AAPL-FY2025-0304",
+      "AAPL-FY2023-0312",
+      "AAPL-FY2024-0317",
+      "AAPL-FY2025-0316",
+      "AAPL-FY2023-0288"
+    ],
+    "model": "gemini-3.1-flash-lite",
+    "correct": true
+  },
+  "text-003": {
+    "answer": "Apple plans to adopt ASU 2023-09 in the fourth quarter of 2026 using a prospective transition method [1][2].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2025-0184",
+      "AAPL-FY2024-0186"
+    ],
+    "retrieved": [
+      "AAPL-FY2025-0184",
+      "AAPL-FY2024-0186",
+      "AAPL-FY2024-0187",
+      "AAPL-FY2025-0183",
+      "AAPL-FY2025-0207"
+    ],
+    "model": "gemini-3.1-flash-lite",
+    "correct": true
+  },
+  "text-004": {
+    "answer": "As of September 27, 2025, Apple had $523 million of fixed payment obligations under additional leases that had not yet commenced [2].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2025-0257"
+    ],
+    "retrieved": [
+      "AAPL-FY2025-0177",
+      "AAPL-FY2025-0257",
+      "AAPL-FY2025-0176",
+      "AAPL-FY2025-0254",
+      "AAPL-FY2025-0260"
+    ],
+    "model": "gemini-3.1-flash-lite",
+    "correct": true
+  },
+  "lookup-002": {
+    "answer": "The starting date for the five-year cumulative total shareholder return comparison is the market close on September 27, 2019 [2].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2024-0148"
+    ],
+    "retrieved": [
+      "AAPL-FY2024-0019",
+      "AAPL-FY2024-0148",
+      "AAPL-FY2024-0150",
+      "AAPL-FY2024-0209",
+      "AAPL-FY2024-0002"
+    ],
+    "model": "gemini-3.1-flash-lite",
+    "correct": true
+  },
+  "unans-003": {
+    "answer": "NOT_FOUND",
+    "refused": true,
+    "cited": [],
+    "retrieved": [
+      "AAPL-FY2025-0269",
+      "AAPL-FY2025-0270",
+      "AAPL-FY2025-0174",
+      "AAPL-FY2025-0223",
+      "AAPL-FY2025-0268"
+    ],
+    "model": "gemini-3.1-flash-lite"
+  },
+  "held-001": {
+    "answer": "In fiscal 2024, Apple recorded a one-time income tax charge of $10.2 billion, net, related to the State Aid Decision [1][2]. This charge represents $15.8 billion payable to Ireland, which was partially offset by a $4.8 billion U.S. foreign tax credit and a $823 million decrease in unrecognized tax benefits [2].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2024-0177",
+      "AAPL-FY2024-0246"
+    ],
+    "retrieved": [
+      "AAPL-FY2024-0177",
+      "AAPL-FY2024-0246",
+      "AAPL-FY2024-0249",
+      "AAPL-FY2024-0184",
+      "AAPL-FY2024-0244"
+    ],
+    "model": "gemini-3.1-flash-lite",
+    "correct": true
+  },
+  "held-002": {
+    "answer": "As of September 28, 2024, Apple held $140.8 billion in unrestricted cash, cash equivalents, and marketable securities [2].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2024-0178"
+    ],
+    "retrieved": [
+      "AAPL-FY2024-0228",
+      "AAPL-FY2024-0178",
+      "AAPL-FY2024-0229",
+      "AAPL-FY2024-0230",
+      "AAPL-FY2024-0207"
+    ],
+    "model": "gemini-3.1-flash-lite",
+    "correct": true
+  },
+  "held-003": {
+    "answer": "As of September 30, 2023, third-party cellular network carriers accounted for 41% of Apple's total trade receivables [1].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2023-0233"
+    ],
+    "retrieved": [
+      "AAPL-FY2023-0233",
+      "AAPL-FY2023-0122",
+      "AAPL-FY2023-0234",
+      "AAPL-FY2023-0139",
+      "AAPL-FY2023-0189"
+    ],
+    "model": "gemini-3.1-flash-lite",
+    "correct": true
+  },
+  "held-004": {
+    "answer": "In fiscal 2024, other corporate expenses, net, reduced Apple's operating income by $7,458 million [1].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2024-0281"
+    ],
+    "retrieved": [
+      "AAPL-FY2024-0281",
+      "AAPL-FY2024-0280",
+      "AAPL-FY2024-0173",
+      "AAPL-FY2024-0198",
+      "AAPL-FY2024-0248"
+    ],
+    "model": "gemini-3.1-flash-lite",
+    "correct": true
+  },
+  "held-005": {
+    "answer": "Apple faces the risk that it may be unable to obtain or create digital content that appeals to its customers or make such content available on commercially reasonable terms [1]. Licensing arrangements for third-party content are often for short periods and do not guarantee renewal, and content providers may increase costs, limit access, or offer competing products that make it difficult for Apple to distribute their content [1].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2023-0083"
+    ],
+    "retrieved": [
+      "AAPL-FY2023-0083",
+      "AAPL-FY2023-0084",
+      "AAPL-FY2023-0077",
+      "AAPL-FY2023-0080",
+      "AAPL-FY2023-0078"
+    ],
+    "model": "gemini-3.1-flash-lite",
+    "correct": true
+  },
+  "held-006": {
+    "answer": "Apple's fiscal 2023 Form 10-K states that the company is required to comply with the European Union (“EU”) Digital Markets Act by March 2024 [1][2].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2023-0081",
+      "AAPL-FY2023-0108"
+    ],
+    "retrieved": [
+      "AAPL-FY2023-0081",
+      "AAPL-FY2023-0108",
+      "AAPL-FY2023-0109",
+      "AAPL-FY2023-0019",
+      "AAPL-FY2023-0310"
+    ],
+    "model": "gemini-3.1-flash-lite",
+    "correct": true
+  },
+  "held-007": {
+    "answer": "In fiscal 2025, Apple's selling, general and administrative expense grew by 6% compared to 2024 [2]. The dollar amount for this expense was $27,601 million in 2025, compared to $26,097 million in 2024 [2].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2025-0170"
+    ],
+    "retrieved": [
+      "AAPL-FY2025-0173",
+      "AAPL-FY2025-0170",
+      "AAPL-FY2025-0279",
+      "AAPL-FY2025-0172",
+      "AAPL-FY2025-0167"
+    ],
+    "model": "gemini-3.1-flash-lite",
+    "correct": true
+  },
+  "held-008": {
+    "answer": "Yes, Apple settled certain legal matters during the fourth quarter of 2023, but these settlements did not have a material impact on the company's financial condition or operating results, either individually or in the aggregate [1].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2023-0134"
+    ],
+    "retrieved": [
+      "AAPL-FY2023-0134",
+      "AAPL-FY2023-0200",
+      "AAPL-FY2023-0282",
+      "AAPL-FY2023-0270",
+      "AAPL-FY2023-0181"
+    ],
+    "model": "gemini-3.1-flash-lite",
+    "correct": true
+  },
+  "held-009": {
+    "answer": "The European Commission announced its State Aid Decision on August 30, 2016 [1]. The decision ordered Ireland to calculate and recover additional taxes from the Company for the period of June 2003 through December 2014 [1].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2025-0244"
+    ],
+    "retrieved": [
+      "AAPL-FY2025-0244",
+      "AAPL-FY2025-0245",
+      "AAPL-FY2025-0248",
+      "AAPL-FY2025-0174",
+      "AAPL-FY2025-0184"
+    ],
+    "model": "gemini-3.1-flash-lite",
+    "correct": true
+  },
+  "held-010": {
+    "answer": "In fiscal 2024, Apple recorded a one-time net income tax charge of $10.2 billion related to the State Aid Decision [2][4]. This charge represents a $15.8 billion payment obligation to Ireland, which was partially offset by a $4.8 billion U.S. foreign tax credit and an $823 million decrease in unrecognized tax benefits [4].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2024-0177",
+      "AAPL-FY2024-0246"
+    ],
+    "retrieved": [
+      "AAPL-FY2024-0184",
+      "AAPL-FY2024-0177",
+      "AAPL-FY2024-0244",
+      "AAPL-FY2024-0246",
+      "AAPL-FY2024-0245"
+    ],
+    "model": "gemini-3.1-flash-lite",
+    "correct": true
+  },
+  "held-011": {
+    "answer": "As of September 27, 2025, Apple's vendor non-trade receivables were concentrated among a few individual vendors located primarily in Asia [2]. Additionally, two of these vendors individually represented 10% or more of the total vendor non-trade receivables, accounting for 46% and 23% [1].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2025-0239",
+      "AAPL-FY2025-0120"
+    ],
+    "retrieved": [
+      "AAPL-FY2025-0239",
+      "AAPL-FY2025-0120",
+      "AAPL-FY2025-0238",
+      "AAPL-FY2025-0119",
+      "AAPL-FY2025-0199"
+    ],
+    "model": "gemini-3.1-flash-lite",
+    "correct": true
+  },
+  "held-012": {
+    "answer": "To help protect customers and the Company, Apple deploys technologies such as multifactor authentication, monitors its systems and services for unusual activity, and may freeze accounts under suspicious circumstances [4].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2023-0093"
+    ],
+    "retrieved": [
+      "AAPL-FY2023-0233",
+      "AAPL-FY2023-0113",
+      "AAPL-FY2023-0017",
+      "AAPL-FY2023-0093",
+      "AAPL-FY2023-0020"
+    ],
+    "model": "gemini-3.1-flash-lite",
+    "correct": true
+  },
+  "held-013": {
+    "answer": "According to Apple's fiscal 2024 10-K, competition has intensified as competitors aggressively cut prices, which has lowered product margins [1][3]. This aggressive pricing, combined with competitors' low-cost structures, has created downward pressure on gross margins [2][5]. Additionally, some competitors have the resources to provide products at little or no profit, or even at a loss [1][3].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2024-0035",
+      "AAPL-FY2024-0033",
+      "AAPL-FY2024-0063",
+      "AAPL-FY2024-0060"
+    ],
+    "retrieved": [
+      "AAPL-FY2024-0035",
+      "AAPL-FY2024-0033",
+      "AAPL-FY2024-0063",
+      "AAPL-FY2024-0064",
+      "AAPL-FY2024-0060"
+    ],
+    "model": "gemini-3.1-flash-lite",
+    "correct": true
+  },
+  "unans-004": {
+    "answer": "NOT_FOUND",
+    "refused": true,
+    "cited": [],
+    "retrieved": [
+      "AAPL-FY2024-0042",
+      "AAPL-FY2025-0043",
+      "AAPL-FY2025-0276",
+      "AAPL-FY2025-0040",
+      "AAPL-FY2023-0039"
+    ],
+    "model": "gemini-3.1-flash-lite"
+  },
+  "unans-005": {
+    "answer": "NOT_FOUND",
+    "refused": true,
+    "cited": [],
+    "retrieved": [
+      "AAPL-FY2025-0063",
+      "AAPL-FY2025-0167",
+      "AAPL-FY2025-0170",
+      "AAPL-FY2025-0144",
+      "AAPL-FY2025-0036"
+    ],
+    "model": "gemini-3.1-flash-lite"
+  },
+  "unans-006": {
+    "answer": "NOT_FOUND",
+    "refused": true,
+    "cited": [],
+    "retrieved": [
+      "AAPL-FY2025-0170",
+      "AAPL-FY2025-0167",
+      "AAPL-FY2025-0173",
+      "AAPL-FY2025-0281",
+      "AAPL-FY2025-0224"
+    ],
+    "model": "gemini-3.1-flash-lite"
+  }
+}

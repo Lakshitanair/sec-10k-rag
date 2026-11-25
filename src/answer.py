@@ -3,6 +3,7 @@ import sys
 
 from src.llm import generate
 from src.search import Searcher
+from src import llm
 
 TOP_K = 5
 NOT_FOUND = "NOT_FOUND"
@@ -47,5 +48,6 @@ if __name__ == "__main__":
     question = " ".join(sys.argv[1:]) or "What were Apple's total net sales in fiscal 2025?"
     result = answer_question(Searcher(), question)
     print("year filter:", result["year_filter"])
+    print("model:", llm.LAST_MODEL)
     print("answer:", result["answer"])
     print("cited chunks:", result["cited"])
