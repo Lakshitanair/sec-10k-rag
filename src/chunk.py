@@ -3,7 +3,8 @@ import json
 import re
 from pathlib import Path
 
-from src.parse import TABLE_CLOSE, TABLE_OPEN
+TABLE_OPEN = "[[TABLE]]"  # same markers that src/parse.py writes
+TABLE_CLOSE = "[[/TABLE]]"
 
 PROCESSED_DIR = Path("data/processed")
 INDEX_DIR = PROCESSED_DIR / "index"
