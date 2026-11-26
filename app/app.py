@@ -1,3 +1,4 @@
+import os
 import sys
 import time
 from pathlib import Path
@@ -7,11 +8,21 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import streamlit as st  # noqa: E402
 
+# On Streamlit Community Cloud, keys live in st.secrets; copy them to env vars
+# so src/llm.py can read them the same way it does locally (.env).
+try:
+    for _key in ("GEMINI_API_KEY", "GEMINI_MODELS", "GEMINI_MODEL"):
+        if _key in st.secrets:
+            os.environ.setdefault(_key, str(st.secrets[_key]))
+except Exception:
+    pass  # no secrets configured (local run uses .env)
+
 from src import llm  # noqa: E402
 from src.answer import answer_question  # noqa: E402
 from src.search import Searcher  # noqa: E402
 
 MAX_QUESTIONS_PER_SESSION = 15
+DAILY_LIMIT = 150  # across all visitors, protects the free API quota
 EXAMPLES = [
     "What was Apple's cost of sales for Services in fiscal 2025?",
     "How did Apple's research and development expense change from fiscal 2024 to fiscal 2025?",
@@ -25,6 +36,19 @@ st.set_page_config(page_title="10-K Q&A", page_icon="📄")
 @st.cache_resource(show_spinner="Loading the search index...")
 def get_searcher():
     return Searcher()
+
+
+@st.cache_resource
+def usage():
+    return {"day": "", "count": 0}
+
+
+def over_daily_limit():
+    u = usage()
+    today = time.strftime("%Y-%m-%d")
+    if u["day"] != today:
+        u["day"], u["count"] = today, 0
+    return u["count"] >= DAILY_LIMIT
 
 
 def use_example(text):
@@ -48,12 +72,20 @@ for i, example in enumerate(EXAMPLES):
 
 question = st.text_input("Your question", key="question")
 ask = st.button("Ask", type="primary")
+st.caption(
+    "Your question is sent to Google's Gemini API (free tier, which Google may use "
+    "to improve its products). Please do not enter personal information."
+)
 
 if ask and question.strip():
     if st.session_state.count >= MAX_QUESTIONS_PER_SESSION:
         st.warning("You have reached the question limit for this session.")
         st.stop()
+    if over_daily_limit():
+        st.warning("This demo has reached its daily question limit. Please come back tomorrow.")
+        st.stop()
     st.session_state.count += 1
+    usage()["count"] += 1
     searcher = get_searcher()
     started = time.time()
     with st.spinner("Searching the filings and writing an answer..."):
