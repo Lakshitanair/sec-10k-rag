@@ -1,0 +1,44 @@
+[
+  {
+    "id": "overview-001",
+    "type": "lookup",
+    "set": "heldout",
+    "question": "What does Apple do, and what are its main products?",
+    "answer": "Apple designs, manufactures and markets smartphones, personal computers, tablets, wearables and accessories, and sells a variety of related services.",
+    "answerable": true,
+    "sources": [
+      {
+        "ticker": "AAPL",
+        "fiscal_year": 2025,
+        "item": "1",
+        "where": "Company Background"
+      }
+    ],
+    "check": [
+      "designs, manufactures and markets"
+    ],
+    "verified": true,
+    "notes": "Broad overview question."
+  },
+  {
+    "id": "overview-002",
+    "type": "lookup",
+    "set": "heldout",
+    "question": "What is the iPhone, according to Apple's latest 10-K?",
+    "answer": "The Company's line of smartphones based on its iOS operating system.",
+    "answerable": true,
+    "sources": [
+      {
+        "ticker": "AAPL",
+        "fiscal_year": 2025,
+        "item": "1",
+        "where": "Products"
+      }
+    ],
+    "check": [
+      "line of smartphones"
+    ],
+    "verified": true,
+    "notes": "Product description; no year named."
+  }
+]

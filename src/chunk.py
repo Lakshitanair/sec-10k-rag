@@ -13,6 +13,8 @@ SKIP_ITEMS = {"15"}  # exhibit index: long and low value
 TEXT_MAX_CHARS = 1200
 TABLE_MAX_CHARS = 2000
 TABLE_HEADER_LINES = 4
+OVERVIEW_CHUNKS = 8  # opening chunks of Item 1 get an "overview" label
+OVERVIEW_LABEL = " (company overview: what the company does, its main products and services)"
 
 
 def is_heading(line):
@@ -106,7 +108,8 @@ def build_chunks():
                 continue
             if "blocks" not in sec:
                 raise SystemExit(f"No 'blocks' key in a section. Keys found: {list(sec.keys())}")
-            header = make_header(ticker, fiscal_year, sec)
+            base_header = make_header(ticker, fiscal_year, sec)
+            k = 0  # chunks produced so far in this section
             for block in sec["blocks"]:
                 if block["kind"] == "table":
                     pieces = split_table(table_text(block))
@@ -115,6 +118,10 @@ def build_chunks():
                 for piece in pieces:
                     if not piece.strip():
                         continue
+                    header = base_header
+                    if sec["item"] == "1" and block["kind"] == "text" and k < OVERVIEW_CHUNKS:
+                        header += OVERVIEW_LABEL
+                    k += 1
                     n += 1
                     chunks.append({
                         "id": f"{ticker}-FY{fiscal_year}-{n:04d}",
@@ -144,16 +151,8 @@ def main():
         print(f"FY{fy}: {len(sub)} chunks ({tables} from tables)")
     sizes = sorted(c["n_chars"] for c in chunks)
     print("chars: min", sizes[0], "| median", sizes[len(sizes) // 2], "| max", sizes[-1])
-    sample = next(
-        (c for c in chunks
-         if c["kind"] == "table" and c["fiscal_year"] == 2025
-         and c["item"] == "8" and "Total net sales" in c["text"]),
-        None,
-    )
-    if sample:
-        print("\n--- sample table chunk ---")
-        print(sample["header"])
-        print(sample["text"])
+    overview = sum(1 for c in chunks if OVERVIEW_LABEL in c["header"])
+    print(overview, "chunks labeled as company overview")
 
 
 if __name__ == "__main__":

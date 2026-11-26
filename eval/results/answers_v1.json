@@ -651,5 +651,39 @@
       "AAPL-FY2025-0223"
     ],
     "model": "gemini-3.1-flash-lite"
+  },
+  "overview-001": {
+    "answer": "Apple designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories, while also selling a variety of related services [5]. Its main products include the iPhone line of smartphones [1] and the Mac line of personal computers [3].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2025-0022",
+      "AAPL-FY2025-0023",
+      "AAPL-FY2025-0021"
+    ],
+    "retrieved": [
+      "AAPL-FY2025-0022",
+      "AAPL-FY2025-0028",
+      "AAPL-FY2025-0023",
+      "AAPL-FY2025-0026",
+      "AAPL-FY2025-0021"
+    ],
+    "model": "gemini-3.1-flash-lite",
+    "correct": true
+  },
+  "overview-002": {
+    "answer": "According to Apple's fiscal 2025 Form 10-K, the iPhone is the company's line of smartphones based on its iOS operating system [1]. The line includes the iPhone 17 Pro, iPhone Air™, iPhone 17, iPhone 16, and iPhone 16e [1].",
+    "refused": false,
+    "cited": [
+      "AAPL-FY2025-0022"
+    ],
+    "retrieved": [
+      "AAPL-FY2025-0022",
+      "AAPL-FY2025-0162",
+      "AAPL-FY2025-0148",
+      "AAPL-FY2025-0021",
+      "AAPL-FY2025-0045"
+    ],
+    "model": "gemini-3.1-flash-lite",
+    "correct": true
   }
 }

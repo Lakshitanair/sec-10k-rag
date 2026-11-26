@@ -32,13 +32,15 @@ class Searcher:
         self.reranker = None
 
     def detect_year(self, query):
-        """Year of the filing the question is about, if we have that filing."""
+        """Filing year to search. Named year if we have it, else the latest filing."""
         available = set(self.years.tolist())
         explicit = [int(a or b) for a, b in FISCAL_RE.findall(query)]
         years = explicit or [int(y) for y in YEAR_RE.findall(query)]
-        if years and max(years) in available:
+        if not years:
+            return max(available)  # no year asked: use the most recent filing
+        if max(years) in available:
             return max(years)
-        return None
+        return None  # a year we don't have: search everything
 
     def _top(self, scores, k, year):
         if year is not None:
